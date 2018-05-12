@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Dashboard from "../components/Dashboard"
 import Header from "../components/Header"
 //form the website layout here.
-import Test from '../componenets/Test'
 
 class LayoutRouter extends React.Component {
 //   componentDidMount() {
@@ -14,8 +13,8 @@ class LayoutRouter extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        {/* <Header /> */}
-    <Test/>
+        <Header />
+    
         <div id="main" role="main">
           <React.Fragment>
             <Route exact path="/" component={Dashboard} />
