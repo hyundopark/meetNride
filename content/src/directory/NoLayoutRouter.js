@@ -1,18 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
-// import Register from "../containers/Register";
-// import Login from "../containers/Login";
+import Register from "../components/Register"
+import Login from "../components/Login";
 
 const NoLayoutRouter = ({ match }) => {
-   return (
-      <React.Fragment>
-          <div>
-              wtf
-              </div>
-             {/* <Route path={`${match.url}/register`} component={Register} />
-             <Route path={`${match.url}/login`} component={Login} /> */}
-      </React.Fragment>
-   );
+  return (
+    <React.Fragment>
+      <div className="noLayout">
+        <Route path={`${match.url}/register`} component={Register} />
+        <Route path={`${match.url}/login`} component={Login} />
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default NoLayoutRouter;

@@ -1,24 +1,19 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Dashboard from "../components/Dashboard"
-import Header from "../components/Header"
+import Dashboard from "../components/Dashboard";
+import Header from "../components/Header";
+import CreateGroup from "../components/CreateGroup";
 //form the website layout here.
 
 class LayoutRouter extends React.Component {
-//   componentDidMount() {
-//     require("../theme-scripts/app.config");
-//     require("../theme-scripts/app");
-//   }
-
   render() {
     return (
-      <div className="wrapper">
+      <div className="App">
         <Header />
-    
+
         <div id="main" role="main">
-          <React.Fragment>
             <Route exact path="/" component={Dashboard} />
-          </React.Fragment>
+            <Route path="/create-group" componenet={CreateGroup} />
         </div>
       </div>
     );

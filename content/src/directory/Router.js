@@ -7,7 +7,7 @@ export default function Router() {
    return (
       <React.Fragment>
          <Switch>
-            <Route path="/nolay" component={NoLayoutRouter} />
+            <Route path="/auth" component={NoLayoutRouter} />
             <Route path="/" component={LayoutRouter} />
          </Switch>
       </React.Fragment>
