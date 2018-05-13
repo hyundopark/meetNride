@@ -16,14 +16,26 @@ import "./css/Register.css";
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    const formData=this.intializeValidation();
+    this.state = {
+      formData: formData,
+      formValid: false
+    };
+  }
+
+  intializeValidation(){
+    const intializedUser = {
+      email: "",
+      password: "",
+      confirmPassword: ""
+    };
   }
 
   render() {
     return (
         <Container className="register">
           <div className="form_register">
-          <Form >
+          <Form className="test">
           <h5 id="signup">Sign Up</h5>
             <FormGroup>
               <Label for="email">Email</Label>
@@ -44,14 +56,15 @@ class Register extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="confirmPassword">Password</Label>
               <Input
-                type="confirmPassword"
+                type="password"
                 name="confirmPassword"
                 id="confirmPassword"
                 placeholder="Re-enter password"
               />
             </FormGroup>
+            <Button color="primary">Submit</Button>{' '}
+            <Button color="default">Cancel</Button>
           </Form>
           </div>
         </Container>
