@@ -33,9 +33,9 @@ class Register extends React.Component {
 
   render() {
     return (
-        <Container className="register">
-          <div className="form_register">
-          <Form className="test">
+        <Container>
+          <div className="div_register">
+          <Form className="form_register">
           <h5 id="signup">Sign Up</h5>
             <FormGroup>
               <Label for="email">Email</Label>

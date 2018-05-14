@@ -12,6 +12,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+  import smallLogo from'./images/smallLogo.png';
+  
   export default class Example extends React.Component {
   constructor(props) {
     super(props);
@@ -30,8 +32,9 @@ import {
     return (
       <div>
         <Navbar color="light" light expand="md">
-        {/* <img src="./pbulic/logo.png"/> */}
-          <NavbarBrand href="/">meetNride</NavbarBrand>
+        <a href="/">
+        <img src={smallLogo} href="/"/>
+        </a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

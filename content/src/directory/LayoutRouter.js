@@ -13,7 +13,7 @@ class LayoutRouter extends React.Component {
 
         <div id="main" role="main">
             <Route exact path="/" component={Dashboard} />
-            <Route path="/create-group" componenet={CreateGroup} />
+            <Route path="/create-group" component={CreateGroup} />
         </div>
       </div>
     );
