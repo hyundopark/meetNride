@@ -12,37 +12,78 @@ import {
   Alert
 } from "reactstrap";
 import "./css/Register.css";
+import * as userService from "./../services/user.service.js";
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    const formData=this.intializeValidation();
+    // const formData=this.intializeValidation();
     this.state = {
-      formData: formData,
+      formData: {
+        email: "",
+        password: "",
+        confirmPassword: ""
+      },
       formValid: false
     };
+    this.onChange = this.onChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
-  intializeValidation(){
-    const intializedUser = {
-      email: "",
-      password: "",
-      confirmPassword: ""
+  // intializeValidation(){
+  //   debugger
+  //   const formData = {
+  //     email: "",
+  //     password: "",
+  //     confirmPassword: ""
+  //   }
+  //   this.state({formData:formData})
+  // }
+
+  // onSubmitUser(){
+
+  // }
+  onSave() {
+    const item = {
+      email: this.state.formData.email.value,
+      password: this.state.formData.password.value
     };
+    //check if the form is valid = form contains
+    console.log("hi");
+    // save to db.
+    userService.registerUser(item).then(() => {
+      console.log("ur id and pw saved");
+    });
+  }
+
+  onChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState(prevState => {
+      const field = { ...prevState.formData[name] };
+      field.value = value;
+      const formData = { ...prevState.formData, [name]: field };
+      return { formData: formData };
+    });
   }
 
   render() {
+    // debugger
     return (
-        <Container>
-          <div className="div_register">
+      <Container>
+        <div className="div_register">
           <Form className="form_register">
-          <h5 id="signup">Sign Up</h5>
+            <h5 id="signup">Sign Up</h5>
             <FormGroup>
               <Label for="email">Email</Label>
               <Input
-                type="exmail"
+                type="email"
                 name="email"
                 id="email"
+                onChange={this.onChange}
+                value={this.state.formData.email.value}
                 placeholder="Enter your email"
               />
             </FormGroup>
@@ -52,6 +93,8 @@ class Register extends React.Component {
                 type="password"
                 name="password"
                 id="password"
+                onChange={this.onChange}
+                value={this.state.formData.password.value}
                 placeholder="Enter your password"
               />
             </FormGroup>
@@ -63,11 +106,13 @@ class Register extends React.Component {
                 placeholder="Re-enter password"
               />
             </FormGroup>
-            <Button color="primary">Submit</Button>{' '}
-            <Button color="default">Cancel</Button>
+            <Button outline color="primary" onClick={this.onSave}>
+              Submit
+            </Button>{" "}
+            <Button outline color="secondary">Cancel</Button>{' '}
           </Form>
-          </div>
-        </Container>
+        </div>
+      </Container>
     );
   }
 }
