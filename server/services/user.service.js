@@ -1,9 +1,9 @@
-const mongodb = require("./mongodb");
+const mongodb = require("./../mongodb");
 const conn = mongodb.connection;
 const ObjectId = mongodb.ObjectId;
 
 module.exports = {
-  create: create,
+  register: register,
   readById: readById,
   delete: _delete,
   readAll: readAll,
@@ -41,7 +41,7 @@ function update(id, doc) {
       .then(result => Promise.resolve())
 }
 
-function create(body) {
+function register(body) {
   return conn
     .db()
     .collection("users")

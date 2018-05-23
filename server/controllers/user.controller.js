@@ -2,7 +2,8 @@ const router = require("express").Router();
 const userService = require("../services/user.service");
 const responses = require("../models/responses");
 const emailService = require("../services/email.service");
-// const apiPrefix = '/api/users'
+const dotenv = require("dotenv");
+const crypto = require("crypto")
 
 module.exports = router;
 
@@ -22,17 +23,20 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   userService
-    .create(req.body)
+    .register(req.body)
     .then(id => {
       responseModel = new responses.ItemResponse();
       responseModel.item = id;
       console.log("data has been stored!");
-      emailService.sendEmail().then(
-        res
-          .status(201)
-          .location(`/${id}`)
-          .json(responseModel)
-      );
+      let tokenNumber = crypto.randomBytes(32).toString('hex');
+      const msg = {
+        to: "hyundo@mailinator.com",
+        from: "no-reply@meetNride.com",
+        subject: "Please verify your account",
+        text: "Please click this link to verify your e-mail",
+        html: "<strong>Click this to verify your e-mail</strong>"
+      };
+      emailService.sendEmail(msg);
     })
     .catch(err => console.log(err));
 });
