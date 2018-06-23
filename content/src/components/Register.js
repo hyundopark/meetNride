@@ -62,9 +62,14 @@ class Register extends React.Component {
     const name = target.name;
 
     this.setState(prevState => {
+      debugger
       const field = { ...prevState.formData[name] };
+      console.log(field)
+      // console.log(value)
       field.value = value;
-      const formData = { ...prevState.formData, [name]: field };
+      // const formData = { ...prevState.formData, [name]: field };
+      const formData={...prevState.formData, [name]:field}
+      // console.log(formData)
       return { formData: formData };
     });
   }
@@ -83,7 +88,7 @@ class Register extends React.Component {
                 name="email"
                 id="email"
                 onChange={this.onChange}
-                value={this.state.formData.email.value}
+                value={this.state.formData.email}
                 placeholder="Enter your email"
               />
             </FormGroup>

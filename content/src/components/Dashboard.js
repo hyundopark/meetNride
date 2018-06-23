@@ -1,4 +1,6 @@
 import React from "react";
+import Test from "./HomeCarousel";
+import { Grid, Row, Col } from "react-bootstrap";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -8,9 +10,13 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>hi</h2>
-      </div>
+      <Grid>
+        <Row className="testing">
+          <Col>
+            <Test/>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

@@ -52,7 +52,6 @@ class CreateGroup extends React.Component {
               <Input type="textarea" name="groupDescribe" id="groupDescribe" />
             </FormGroup>
             <br />
-            <br />
             <div>
               <Button outline color="primary" onClick={this.onSave}>
                 Submit
