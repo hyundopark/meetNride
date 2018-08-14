@@ -1,5 +1,5 @@
 import React from "react";
-import Test from "./HomeCarousel";
+import PlayerTest from "./PlayerTest";
 import { Grid, Row, Col } from "react-bootstrap";
 
 class Dashboard extends React.Component {
@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
       <Grid>
         <Row className="testing">
           <Col>
-            <Test/>
+            <PlayerTest/>
           </Col>
         </Row>
       </Grid>
