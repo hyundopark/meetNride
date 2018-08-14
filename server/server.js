@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const routes = require("./middleware");
 const dotenv = require("dotenv");
+dotenv.config();
+const routes = require("./controllers/user.controller");
 const mongo = require("./mongodb");
 
-dotenv.config();
+
 
 // const port = process.env.PORT;
 

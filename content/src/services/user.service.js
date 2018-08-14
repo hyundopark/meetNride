@@ -27,7 +27,7 @@ export function del(id) {
     .catch(responseErrorHandler);
 }
 
-export function create(userData) {
+export function registerUser(userData) {
   const config = {
     method: "POST",
     headers,
