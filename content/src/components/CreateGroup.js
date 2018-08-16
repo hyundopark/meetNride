@@ -19,6 +19,7 @@ class CreateGroup extends React.Component {
 
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     this.onSave = this.onSave.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onRadioBtnClick(selected) {
@@ -27,6 +28,10 @@ class CreateGroup extends React.Component {
 
   onSave() {
     console.log("testing");
+  }
+
+  onChange(e){
+    console.log(e)
   }
 
   render() {
@@ -38,6 +43,7 @@ class CreateGroup extends React.Component {
             <FormGroup>
               <Label for="groupName">Group Name</Label>
               <Input
+                onChange={(e) => this.onChange(`${e.target.value}`)}
                 type="text"
                 name="groupName"
                 id="groupName"
@@ -45,7 +51,7 @@ class CreateGroup extends React.Component {
               />
             </FormGroup>
             <Label for="rideSelect">Key Words</Label>
-            <TestSelect id="rideSelect" />
+            <TestSelect id="rideSelect" sendDataKeyWordSelect={this.onRadioBtnClick}/>
             <br />
             <FormGroup>
               <Label for="groupDescribe">Group Description</Label>

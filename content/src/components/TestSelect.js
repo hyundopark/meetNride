@@ -8,9 +8,11 @@ class TestSelect extends React.Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    // debugger
-    // console.log(`Selected: ${selectedOption[selectedOption.length].value}`);
+    console.log(`Option selected:`, selectedOption);
+    this.props.sendDataKeyWordSelect(selectedOption)
   }
+
+  //change the array to simple {key: value} for select
   render() {
   	const { selectedOption } = this.state;
 
