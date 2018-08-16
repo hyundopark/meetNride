@@ -16,7 +16,8 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongo": "^0.1.0",
-    "mongodb": "2.2.31"
+    "mongodb": "2.2.31",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {}
 }
