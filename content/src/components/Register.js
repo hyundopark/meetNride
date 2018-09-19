@@ -5,11 +5,7 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
-  Container,
-  Row,
-  Col,
-  Alert
+  Container
 } from "reactstrap";
 import "./css/Register.css";
 import * as userService from "./../services/user.service.js";

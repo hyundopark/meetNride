@@ -4,7 +4,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -33,7 +32,7 @@ import {
       <div>
         <Navbar color="light" light expand="md">
         <a href="/">
-        <img src={smallLogo} href="/"/>
+        <img alt="smallLogo" src={smallLogo} href="/"/>
         </a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
