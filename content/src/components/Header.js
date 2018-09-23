@@ -41,7 +41,10 @@ import {
                 <NavLink tag={Link} to="/create-group">Group</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/auth/login">test</NavLink>
+                <NavLink tag={Link} to="/register">Register</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/auth/login">Log in</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
