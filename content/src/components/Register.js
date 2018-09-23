@@ -25,7 +25,7 @@ class Register extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }
-
+//creating new
   // intializeValidation(){
   //   debugger
   //   const formData = {
