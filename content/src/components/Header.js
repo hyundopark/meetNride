@@ -4,7 +4,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -33,7 +32,7 @@ import {
       <div>
         <Navbar color="light" light expand="md">
         <a href="/">
-        <img src={smallLogo} href="/"/>
+        <img alt="smallLogo" src={smallLogo} href="/"/>
         </a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -42,7 +41,10 @@ import {
                 <NavLink tag={Link} to="/create-group">Group</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/auth/login">test</NavLink>
+                <NavLink tag={Link} to="/register">Register</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/auth/login">Log in</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

@@ -8,14 +8,13 @@ class TestSelect extends React.Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
-    this.props.sendDataKeyWordSelect(selectedOption)
+    const selectedOptionValue = selectedOption.map(option=>option.value)
+    this.props.sendDataKeyWordSelect(selectedOptionValue)
   }
 
   //change the array to simple {key: value} for select
   render() {
   	const { selectedOption } = this.state;
-
     return (
       <Select
         name="form-field-name"
@@ -28,7 +27,6 @@ class TestSelect extends React.Component {
           { value: 'Touring', label: 'Touring' },
           { value: 'Social', label: 'Social' }
         ]}
-        // joinValues={true}
       />
     );
   }

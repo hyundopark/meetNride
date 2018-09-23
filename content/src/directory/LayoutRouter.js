@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
 import CreateGroup from "../components/CreateGroup";
+import Register from "../components/Register";
 //form the website layout here.
 
 class LayoutRouter extends React.Component {
@@ -14,6 +15,7 @@ class LayoutRouter extends React.Component {
         <div id="main" role="main">
             <Route exact path="/" component={Dashboard} />
             <Route path="/create-group" component={CreateGroup} />
+            <Route path="/register" component={Register} />
         </div>
       </div>
     );

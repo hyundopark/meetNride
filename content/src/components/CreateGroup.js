@@ -1,37 +1,58 @@
 import React from "react";
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  ButtonGroup,
-  Container
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
 import "./css/createGroup.css";
 import TestSelect from "./TestSelect";
 
 class CreateGroup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    const formData = {
+      ridingGroupName: {
+        value: ""
+      },
+      groupKeyWord: {
+        value: ""
+      },
+      groupDescribe: {
+        value: ""
+      }
+    };
+    this.state = {
+      formData: formData
+    };
 
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     this.onSave = this.onSave.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
-  onRadioBtnClick(selected) {
-    this.setState({ selected });
+  onRadioBtnClick(selectedKeyWord) {
+    this.setState(prevState => {
+      const field = { ...prevState.formData["groupKeyWord"] };
+      field.value = selectedKeyWord;
+      const formData = { ...prevState.formData, ["groupKeyWord"]: field };
+      return { formData: formData };
+    });
+  }
+
+  onChange(e) {
+    const target = e.target;
+    const value = target.value; //if there's radio, also have it target.checked.
+    const name = target.name;
+    this.setState(prevState => {
+      const field = { ...prevState.formData[name] };
+      field.value = value;
+      const formData = { ...prevState.formData, [name]: field };
+
+      return { formData: formData };
+    });
   }
 
   onSave() {
     console.log("testing");
-  }
-
-  onChange(e){
-    console.log(e)
+    //create a deep copy of formData
+    const formData = JSON.parse(JSON.stringify(this.state.formData));
   }
 
   render() {
@@ -41,21 +62,35 @@ class CreateGroup extends React.Component {
           <Form className="form_createGroup">
             <h5 id="createGroup">Create a group</h5>
             <FormGroup>
-              <Label for="groupName">Group Name</Label>
+              <Label for="ridingGroupName">Group Name</Label>
               <Input
-                onChange={(e) => this.onChange(`${e.target.value}`)}
                 type="text"
-                name="groupName"
-                id="groupName"
+                name="ridingGroupName"
+                id="ridingGroupName"
                 placeholder="Enter Your Group Name"
+                onChange={this.onChange}
+                value={this.state.formData.ridingGroupName.value}
               />
+              {/* ridingGroupName */}
             </FormGroup>
-            <Label for="rideSelect">Key Words</Label>
-            <TestSelect id="rideSelect" sendDataKeyWordSelect={this.onRadioBtnClick}/>
+            <Label for="groupKeyWord">Key Words</Label>
+            <TestSelect
+              id="groupKeyWord"
+              name="groupKeyWord"
+              onChange={this.onChange}
+              value={this.state.formData.groupKeyWord.value}
+              sendDataKeyWordSelect={this.onRadioBtnClick}
+            />
             <br />
             <FormGroup>
-              <Label for="groupDescribe">Group Description</Label>
-              <Input type="textarea" name="groupDescribe" id="groupDescribe" />
+              <Label for="groupDescribe">Tell us about your group</Label>
+              <Input
+                type="textarea"
+                name="groupDescribe"
+                id="groupDescribe"
+                onChange={this.onChange}
+                value={this.state.formData.groupDescribe.value}
+              />
             </FormGroup>
             <br />
             <div>
